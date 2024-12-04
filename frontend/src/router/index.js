@@ -1,4 +1,3 @@
-
 import { createRouter, createWebHistory } from "vue-router";
 // import { middlewarePipeline, isAuthenticated } from "@/middlewares";
 
