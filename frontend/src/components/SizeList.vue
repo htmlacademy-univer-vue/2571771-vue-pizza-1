@@ -1,11 +1,11 @@
 <template>
     <div>
-      <h2>Дополнительно:</h2>
+      <h2>Выберите размер:</h2>
       <ul>
-        <li v-for="item in misc" :key="item.id">
-          <img :src="`/src/assets/img/${item.image}.svg`" :alt="item.name" />
+        <li v-for="item in sizes" :key="item.id">
+          <img :src="`/src/assets/img/${item.image}`" :alt="item.name" />
           <p><strong>{{ item.name }}</strong></p>
-          <p>Цена: {{ item.price }} ₽</p>
+          <p>Множитель: {{ item.multiplier }}</p>
         </li>
       </ul>
     </div>
@@ -13,9 +13,9 @@
 
   <script>
   export default {
-    name: "MiscList",
+    name: "SizeList",
     props: {
-      misc: {
+      sizes: {
         type: Array,
         required: true,
       },

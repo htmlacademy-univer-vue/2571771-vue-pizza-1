@@ -4,10 +4,9 @@
       <p>This is an about page for the Vue Pizza Project.</p>
     </div>
   </template>
-  
+
   <script>
   export default {
     name: "AboutPage",
   };
   </script>
-  

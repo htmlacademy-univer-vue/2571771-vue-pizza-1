@@ -11,7 +11,7 @@
       </ul>
     </div>
   </template>
-  
+
   <script>
   export default {
     name: "DoughList",
@@ -23,7 +23,7 @@
     },
   };
   </script>
-  
+
   <style scoped>
   ul {
     list-style-type: none;
@@ -37,4 +37,3 @@
     height: 50px;
   }
   </style>
-  

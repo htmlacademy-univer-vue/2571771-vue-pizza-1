@@ -9,7 +9,7 @@
       </ul>
     </div>
   </template>
-  
+
   <script>
   export default {
     name: "SauceList",
@@ -21,7 +21,7 @@
     },
   };
   </script>
-  
+
   <style scoped>
   ul {
     list-style-type: none;
@@ -31,4 +31,3 @@
     margin-bottom: 20px;
   }
   </style>
-  
