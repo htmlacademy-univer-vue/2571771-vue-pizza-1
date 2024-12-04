@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 // src/router/index.js
 import { createRouter, createWebHistory } from "vue-router";
+<<<<<<< HEAD
 import App from "../App.vue";
 import HomeView from "@/views/HomeView.vue";  // Importing HomeView
 import AboutView from "@/views/AboutView.vue"; // Importing AboutView
@@ -63,6 +64,10 @@ const routes = [
   }
 >>>>>>> 928f0bb (initial commit)
 ];
+=======
+import HomeView from "@/views/HomeView.vue";  // Importing HomeView
+import AboutView from "@/views/AboutView.vue"; // Importing AboutView
+>>>>>>> 84c2693 (Добавление переменных в компонент в проекте Vue-Pizza)
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -74,6 +79,19 @@ export default router;
 =======
   routes: [],
 });
+
+const routes = [
+  {
+    path: "/",
+    name: "Home",
+    component: HomeView,  // Mapping path '/' to HomeView
+  },
+  {
+    path: "/about",
+    name: "About",
+    component: AboutView,  // Mapping path '/about' to AboutView
+  },
+];
 
 export default router;
 >>>>>>> 928f0bb (initial commit)
