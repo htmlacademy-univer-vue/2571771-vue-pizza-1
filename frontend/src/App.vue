@@ -1,14 +1,31 @@
 <template>
-  <div class="main__wrapper">
-    <div class="main__header">
-      <img src="@/assets/img/logo.svg" width="300" height="47" alt="V!U!E! Pizza" />
+    <nav>
+      <router-link to="/">Home</router-link> | 
+      <router-link to="/about">About</router-link>
+    </nav>
+    <router-view /> <!-- This will display the matched route's component -->
+    <div id="app">
+      <div>
+        <div class="main__wrapper">
+          <div class="main__header">
+            <img src="@/assets/img/logo.svg" width="300" height="47" alt="V!U!E! Pizza" />
+          </div>
+          <h1>Добро пожаловать!</h1>
+          <p>
+            Это проект V!U!E! Pizza для обучения на профессиональном онлайн‑курсе<br />
+            <b>«Vue.js для опытных разработчиков».</b>
+          </p>
+        </div>
+        <h1>Vue Pizza Project</h1>
+        <DoughList :dough="dough" />
+        <IngredientList :ingredients="ingredients" />
+        <MiscList :misc="misc" />
+        <SauceList :sauces="sauces" />
+        <SizeList :sizes="sizes" />
     </div>
-    <h1>Добро пожаловать!</h1>
-    <p>
-      Это проект V!U!E! Pizza для обучения на профессиональном онлайн‑курсе<br />
-      <b>«Vue.js для опытных разработчиков».</b>
-    </p>
   </div>
+
+
 </template>
 
 <style lang="scss">
@@ -60,3 +77,36 @@ body {
 }
 
 </style>
+
+<script>
+import DoughList from "@/components/DoughList.vue";
+import IngredientList from "@/components/IngredientList.vue";
+import MiscList from "@/components/MiscList.vue";
+import SauceList from "@/components/SauceList.vue";
+import SizeList from "@/components/SizeList.vue";
+
+import dough from "@/mocks/dough.json";
+import ingredients from "@/mocks/ingredients.json";
+import misc from "@/mocks/misc.json";
+import sauces from "@/mocks/sauces.json";
+import sizes from "@/mocks/sizes.json";
+
+export default {
+  components: {
+    DoughList,
+    IngredientList,
+    MiscList,
+    SauceList,
+    SizeList,
+  },
+  data() {
+    return {
+      dough,
+      ingredients,
+      misc,
+      sauces,
+      sizes,
+    };
+  },
+};
+</script>
