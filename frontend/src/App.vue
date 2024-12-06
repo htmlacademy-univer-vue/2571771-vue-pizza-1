@@ -1,6 +1,7 @@
 <template>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <nav>
       <router-link to="/">Home</router-link> | 
       <router-link to="/about">About</router-link>
@@ -58,45 +59,62 @@
     <router-link to="/about">About</router-link>
   </nav>
   <router-view /> <!-- This will display the matched route's component -->
+=======
+>>>>>>> 62db283 (Добавление переменных в компонент в проекте Vue-Pizza)
   <div id="app">
-    <div>
-      <div class="main__wrapper">
-        <div class="main__header">
-          <img src="@/assets/img/logo.svg" width="300" height="47" alt="V!U!E! Pizza" />
-        </div>
-        <h1>Добро пожаловать!</h1>
-        <p>
-          Это проект V!U!E! Pizza для обучения на профессиональном онлайн‑курсе<br />
-          <b>«Vue.js для опытных разработчиков».</b>
-        </p>
+    <AppHeader />
+    <router-view /> <!-- This will display the matched route's component -->
+    <div class="main__wrapper">
+      <div class="main__header">
+        <img src="@/assets/img/logo.svg" width="300" height="47" alt="V!U!E! Pizza" />
       </div>
+      <h1>Добро пожаловать!</h1>
+      <p>
+        Это проект V!U!E! Pizza для обучения на профессиональном онлайн‑курсе<br />
+        <b>«Vue.js для опытных разработчиков».</b>
+      </p>
       <h1>Vue Pizza Project</h1>
       <DoughList :dough="dough" />
       <IngredientList :ingredients="ingredients" />
       <MiscList :misc="misc" />
       <SauceList :sauces="sauces" />
       <SizeList :sizes="sizes" />
+    </div>
   </div>
+<<<<<<< HEAD
 </div>
 
 
 >>>>>>> 84c2693 (Добавление переменных в компонент в проекте Vue-Pizza)
+=======
+>>>>>>> 62db283 (Добавление переменных в компонент в проекте Vue-Pizza)
 </template>
 
 <style lang="scss">
 @import "@/assets/scss/app.scss";
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 928f0bb (initial commit)
+=======
+
+>>>>>>> 62db283 (Добавление переменных в компонент в проекте Vue-Pizza)
 body {
-justify-content: center;
-align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 <<<<<<< HEAD
-.main__wrapper {
-padding-bottom: 30px;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 62db283 (Добавление переменных в компонент в проекте Vue-Pizza)
+.main__wrapper {
+  padding-bottom: 30px;
+  background-color: $white;
+  box-shadow: $shadow-light;
+
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -180,14 +198,38 @@ b {
 =======
 margin-bottom: 30px;
 padding: 20px 0;
+=======
+  h1 {
+    margin-bottom: 0;
+    padding: 0 95px;
+    text-align: center;
+    @include b-s36-h42;
+  }
 
-background-color: $green-600;
+  p {
+    padding: 0 95px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 30px;
+  }
 
-img {
-  display: block;
-
-  margin: 0 auto;
+  b {
+    font-size: 1.2em;
+  }
 }
+
+.main__header {
+  margin-bottom: 30px;
+  padding: 20px 0;
+  background-color: $green-600;
+>>>>>>> 62db283 (Добавление переменных в компонент в проекте Vue-Pizza)
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+<<<<<<< HEAD
 >>>>>>> 84c2693 (Добавление переменных в компонент в проекте Vue-Pizza)
 }
 
@@ -218,6 +260,12 @@ import AppHeader from '@/layouts/AppHeader.vue';
 >>>>>>> 928f0bb (initial commit)
 =======
 >>>>>>> 84c2693 (Добавление переменных в компонент в проекте Vue-Pizza)
+=======
+</style>
+
+<script>
+import AppHeader from '@/layouts/AppHeader.vue';
+>>>>>>> 62db283 (Добавление переменных в компонент в проекте Vue-Pizza)
 import DoughList from "@/components/DoughList.vue";
 import IngredientList from "@/components/IngredientList.vue";
 import MiscList from "@/components/MiscList.vue";
@@ -225,9 +273,12 @@ import SauceList from "@/components/SauceList.vue";
 import SizeList from "@/components/SizeList.vue";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 84c2693 (Добавление переменных в компонент в проекте Vue-Pizza)
 
+=======
+>>>>>>> 62db283 (Добавление переменных в компонент в проекте Vue-Pizza)
 import dough from "@/mocks/dough.json";
 import ingredients from "@/mocks/ingredients.json";
 import misc from "@/mocks/misc.json";
@@ -235,6 +286,7 @@ import sauces from "@/mocks/sauces.json";
 import sizes from "@/mocks/sizes.json";
 
 export default {
+<<<<<<< HEAD
 <<<<<<< HEAD
   components: {
 =======
@@ -249,12 +301,21 @@ export default {
   components: {
     AppHeader,
 >>>>>>> 928f0bb (initial commit)
+=======
+  name: 'App',
+  components: {
+    AppHeader,
+>>>>>>> 62db283 (Добавление переменных в компонент в проекте Vue-Pizza)
     DoughList,
     IngredientList,
     MiscList,
     SauceList,
 <<<<<<< HEAD
+<<<<<<< HEAD
     SizeList,
+=======
+    SizeList
+>>>>>>> 62db283 (Добавление переменных в компонент в проекте Vue-Pizza)
   },
   data() {
     return {
@@ -262,6 +323,7 @@ export default {
       ingredients,
       misc,
       sauces,
+<<<<<<< HEAD
       sizes,
     };
   },
@@ -310,5 +372,10 @@ data() {
   };
 },
 >>>>>>> 84c2693 (Добавление переменных в компонент в проекте Vue-Pizza)
+=======
+      sizes
+    };
+  }
+>>>>>>> 62db283 (Добавление переменных в компонент в проекте Vue-Pizza)
 };
 </script>
