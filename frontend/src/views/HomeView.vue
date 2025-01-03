@@ -22,6 +22,7 @@
 
         <div class="content__dough">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <div class="sheet">
             <h2 class="title title--small sheet__title">Выберите тесто</h2>
             <div class="sheet__content dough">
@@ -34,23 +35,30 @@
                 <input type="radio" name="dough" value="large" class="visually-hidden" v-model="selectedDough" />
 =======
 
+=======
+>>>>>>> 531e185 (initial commit)
           <div class="sheet">
             <h2 class="title title--small sheet__title">Выберите тесто</h2>
-
             <div class="sheet__content dough">
               <label class="dough__input dough__input--light">
-                <input type="radio" name="dought" value="light" class="visually-hidden" checked>
+                <input type="radio" name="dough" value="light" class="visually-hidden" v-model="selectedDough" />
                 <b>Тонкое</b>
                 <span>Из твердых сортов пшеницы</span>
               </label>
+<<<<<<< HEAD
 
             <label class="dough__input dough__input--large">
                 <input type="radio" name="dought" value="large" class="visually-hidden">
 >>>>>>> 81bcd38 (Created AppHeader.vue, HomeView.vue, and AppLayout.vue components)
+=======
+              <label class="dough__input dough__input--large">
+                <input type="radio" name="dough" value="large" class="visually-hidden" v-model="selectedDough" />
+>>>>>>> 531e185 (initial commit)
                 <b>Толстое</b>
                 <span>Из твердых сортов пшеницы</span>
               </label>
             </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
           </div>
 =======
@@ -58,11 +66,15 @@
           </div>
 
 >>>>>>> 81bcd38 (Created AppHeader.vue, HomeView.vue, and AppLayout.vue components)
+=======
+          </div>
+>>>>>>> 531e185 (initial commit)
         </div>
 
         <div class="content__diameter">
           <div class="sheet">
             <h2 class="title title--small sheet__title">Выберите размер</h2>
+<<<<<<< HEAD
 <<<<<<< HEAD
             <div class="sheet__content diameter">
               <label class="diameter__input diameter__input--small">
@@ -77,18 +89,24 @@
                 <input type="radio" name="diameter" value="big" class="visually-hidden" v-model="selectedDiameter" />
 =======
 
+=======
+>>>>>>> 531e185 (initial commit)
             <div class="sheet__content diameter">
               <label class="diameter__input diameter__input--small">
-                <input type="radio" name="diameter" value="small" class="visually-hidden">
+                <input type="radio" name="diameter" value="small" class="visually-hidden" v-model="selectedDiameter" />
                 <span>23 см</span>
               </label>
               <label class="diameter__input diameter__input--normal">
-                <input type="radio" name="diameter" value="normal" class="visually-hidden" checked>
+                <input type="radio" name="diameter" value="normal" class="visually-hidden" v-model="selectedDiameter" />
                 <span>32 см</span>
               </label>
               <label class="diameter__input diameter__input--big">
+<<<<<<< HEAD
                 <input type="radio" name="diameter" value="big" class="visually-hidden">
 >>>>>>> 81bcd38 (Created AppHeader.vue, HomeView.vue, and AppLayout.vue components)
+=======
+                <input type="radio" name="diameter" value="big" class="visually-hidden" v-model="selectedDiameter" />
+>>>>>>> 531e185 (initial commit)
                 <span>45 см</span>
               </label>
             </div>
@@ -99,15 +117,19 @@
           <div class="sheet">
             <h2 class="title title--small sheet__title">Выберите ингредиенты</h2>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 81bcd38 (Created AppHeader.vue, HomeView.vue, and AppLayout.vue components)
+=======
+>>>>>>> 531e185 (initial commit)
             <div class="sheet__content ingredients">
 
               <div class="ingredients__sauce">
                 <p>Основной соус:</p>
 
                 <label class="radio ingredients__input">
+<<<<<<< HEAD
 <<<<<<< HEAD
                   <input type="radio" name="sauce" value="tomato" v-model="selectedSauce" />
                   <span>Томатный</span>
@@ -121,6 +143,13 @@
                 <label class="radio ingredients__input">
                   <input type="radio" name="sauce" value="creamy">
 >>>>>>> 81bcd38 (Created AppHeader.vue, HomeView.vue, and AppLayout.vue components)
+=======
+                  <input type="radio" name="sauce" value="tomato" v-model="selectedSauce" />
+                  <span>Томатный</span>
+                </label>
+                <label class="radio ingredients__input">
+                  <input type="radio" name="sauce" value="creamy" v-model="selectedSauce" />
+>>>>>>> 531e185 (initial commit)
                   <span>Сливочный</span>
                 </label>
               </div>
@@ -129,6 +158,7 @@
                 <p>Начинка:</p>
 
                 <ul class="ingredients__list">
+<<<<<<< HEAD
 <<<<<<< HEAD
                   <li class="ingredients__item" v-for="(ingredient, index) in ingredients" :key="index">
                     <span :class="`filling filling--${ingredient.name}`">{{ ingredient.name }}</span>
@@ -142,14 +172,23 @@
 =======
                   <li class="ingredients__item">
                     <span class="filling filling--mushrooms">Грибы</span>
+=======
+                  <li class="ingredients__item" v-for="(ingredient, index) in ingredients" :key="index">
+                    <span :class="`filling filling--${ingredient.name}`">{{ ingredient.name }}</span>
+>>>>>>> 531e185 (initial commit)
 
                     <div class="counter counter--orange ingredients__counter">
-                      <button type="button" class="counter__button counter__button--minus" disabled>
+                      <button type="button" class="counter__button counter__button--minus" @click="decreaseCount(index)" :disabled="ingredient.count === 0">
                         <span class="visually-hidden">Меньше</span>
                       </button>
+<<<<<<< HEAD
                       <input type="text" name="counter" class="counter__input" value="0">
                       <button type="button" class="counter__button counter__button--plus">
 >>>>>>> 81bcd38 (Created AppHeader.vue, HomeView.vue, and AppLayout.vue components)
+=======
+                      <input type="text" name="counter" class="counter__input" v-model.number="ingredient.count" />
+                      <button type="button" class="counter__button counter__button--plus" @click="increaseCount(index)">
+>>>>>>> 531e185 (initial commit)
                         <span class="visually-hidden">Больше</span>
                       </button>
                     </div>
@@ -348,15 +387,20 @@
           <label class="input">
             <span class="visually-hidden">Название пиццы</span>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <input type="text" name="pizza_name" v-model="pizzaName" placeholder="Введите название пиццы" />
 =======
             <input type="text" name="pizza_name" placeholder="Введите название пиццы">
 >>>>>>> 81bcd38 (Created AppHeader.vue, HomeView.vue, and AppLayout.vue components)
+=======
+            <input type="text" name="pizza_name" v-model="pizzaName" placeholder="Введите название пиццы" />
+>>>>>>> 531e185 (initial commit)
           </label>
 
           <div class="content__constructor">
             <div class="pizza pizza--foundation--big-tomato">
               <div class="pizza__wrapper">
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <div class="pizza__filling" v-for="(ingredient, index) in ingredients" :key="index" v-if="ingredient.count > 0" :class="`pizza__filling--${ingredient.name}`"></div>
 =======
@@ -364,11 +408,15 @@
                 <div class="pizza__filling pizza__filling--bacon"></div>
                 <div class="pizza__filling pizza__filling--cheddar"></div>
 >>>>>>> 81bcd38 (Created AppHeader.vue, HomeView.vue, and AppLayout.vue components)
+=======
+                <div class="pizza__filling" v-for="(ingredient, index) in ingredients" :key="index" v-if="ingredient.count > 0" :class="`pizza__filling--${ingredient.name}`"></div>
+>>>>>>> 531e185 (initial commit)
               </div>
             </div>
           </div>
 
           <div class="content__result">
+<<<<<<< HEAD
 <<<<<<< HEAD
             <p>Итого: {{ totalPrice }} ₽</p>
             <button type="button" class="button" :disabled="!canOrder">Готовьте!</button>
@@ -376,6 +424,10 @@
             <p>Итого: 0 ₽</p>
             <button type="button" class="button" disabled>Готовьте!</button>
 >>>>>>> 81bcd38 (Created AppHeader.vue, HomeView.vue, and AppLayout.vue components)
+=======
+            <p>Итого: {{ totalPrice }} ₽</p>
+            <button type="button" class="button" :disabled="!canOrder">Готовьте!</button>
+>>>>>>> 531e185 (initial commit)
           </div>
         </div>
 
@@ -384,6 +436,9 @@
     </form>
   </main>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 531e185 (initial commit)
 </template>
 
 <script>
@@ -445,7 +500,11 @@ export default {
     },
   },
 };
+<<<<<<< HEAD
 </script>
 >>>>>>> 928f0bb (initial commit)
 =======
 </template>
+=======
+</script>
+>>>>>>> 531e185 (initial commit)
