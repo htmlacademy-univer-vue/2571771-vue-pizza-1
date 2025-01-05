@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import { middlewarePipeline, isAuthenticated } from "@/middlewares";
 
 import MainView from "../views/MainView.vue";
-import IndexView from "@/views/IndexView.vue";
 import WelcomeView from "@/views/WelcomeView.vue";
 import CartView from "@/views/CartView.vue";
 import OrdersView from "@/views/OrdersView.vue";
@@ -17,8 +16,12 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "Index",
-      component: IndexView,
+      name: "Main",
+      component: MainView,
+      meta: {
+        middlewares: [isAuthenticated],
+        layout: HeaderLayout,
+      },
     },
     {
       path: "/welcome",
@@ -26,18 +29,11 @@ const router = createRouter({
       component: WelcomeView,
     },
     {
-      path: "/main",
-      name: "Main",
-      component: MainView,
-      meta: {
-        layout: HeaderLayout,
-      },
-    },
-    {
       path: "/cart",
       name: "Cart",
       component: CartView,
       meta: {
+        middlewares: [isAuthenticated],
         layout: HeaderLayout,
       },
     },

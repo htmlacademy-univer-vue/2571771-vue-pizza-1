@@ -1,12 +1,12 @@
 import { defineStore, storeToRefs } from "pinia";
 import { computed, ref } from "vue";
-// import {
-//   doughService,
-//   ingredientsService,
-//   miscService,
-//   saucesService,
-//   sizesService,
-// } from "../services";
+import {
+  doughService,
+  ingredientsService,
+  miscService,
+  saucesService,
+  sizesService,
+} from "../services";
 import { usePizzaStore } from "./pizzaStore";
 
 export const useDataStore = defineStore("data", () => {
@@ -78,23 +78,23 @@ export const useDataStore = defineStore("data", () => {
   });
 
   const fetchDough = async () => {
-    // doughOptions.value = await doughService.getDough();
+    doughOptions.value = await doughService.getDough();
   };
 
   const fetchSizes = async () => {
-    // sizeOptions.value = await sizesService.getSizes();
+    sizeOptions.value = await sizesService.getSizes();
   };
 
   const fetchSauces = async () => {
-    // saucesOptions.value = await saucesService.getSauces();
+    saucesOptions.value = await saucesService.getSauces();
   };
 
   const fetchMisc = async () => {
-    // miscOptions.value = await miscService.getMisc();
+    miscOptions.value = await miscService.getMisc();
   };
 
   const fetchIngredients = async () => {
-    // ingredientsOptions.value = await ingredientsService.getIngredients();
+    ingredientsOptions.value = await ingredientsService.getIngredients();
 
     const { pizzaIngredients } = storeToRefs(usePizzaStore());
 
