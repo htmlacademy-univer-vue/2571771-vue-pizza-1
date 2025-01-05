@@ -2,7 +2,7 @@ import { defineStore, storeToRefs } from "pinia";
 import { computed, ref } from "vue";
 import { useDataStore } from "./dataStore";
 import { usePizzaStore } from "./pizzaStore";
-import { ordersService } from "../services";
+// import { ordersService } from "../services";
 import { useAuthStore } from "./authStore";
 import { useProfileStore } from "./profileStore";
 import router from "../router";
@@ -70,53 +70,53 @@ export const useCartStore = defineStore("cart", () => {
     );
   });
 
-  // const addPizzaToCart = (name) => {
-  //   const { pizzaIngredients, pizzaDough, pizzaSauce, pizzaSize } = storeToRefs(
-  //     usePizzaStore()
-  //   );
-  //   const preparedIngredients = [];
-  //   Object.entries(pizzaIngredients.value).forEach(
-  //     ([ingredientId, quantity]) => {
-  //       if (quantity > 0) {
-  //         preparedIngredients.push({
-  //           ingredientId,
-  //           quantity,
-  //         });
-  //       }
-  //     }
-  //   ),
-  //     cart.value.pizzas.push({
-  //       name,
-  //       sauceId: pizzaSauce.value,
-  //       doughId: pizzaDough.value,
-  //       sizeId: pizzaSize.value,
-  //       quantity: 1,
-  //       ingredients: preparedIngredients,
-  //     });
-  // };
+  const addPizzaToCart = (name) => {
+    const { pizzaIngredients, pizzaDough, pizzaSauce, pizzaSize } = storeToRefs(
+      usePizzaStore()
+    );
+    const preparedIngredients = [];
+    Object.entries(pizzaIngredients.value).forEach(
+      ([ingredientId, quantity]) => {
+        if (quantity > 0) {
+          preparedIngredients.push({
+            ingredientId,
+            quantity,
+          });
+        }
+      }
+    ),
+      cart.value.pizzas.push({
+        name,
+        sauceId: pizzaSauce.value,
+        doughId: pizzaDough.value,
+        sizeId: pizzaSize.value,
+        quantity: 1,
+        ingredients: preparedIngredients,
+      });
+  };
 
-  // const sendOrder = async () => {
-  //   const profileStore = useProfileStore();
-  //   const { fetchOrders, fetchAddresses } = profileStore;
+  const sendOrder = async () => {
+    const profileStore = useProfileStore();
+    const { fetchOrders, fetchAddresses } = profileStore;
 
-  //   const response = await ordersService.createOrder(cart.value);
+    // const response = await ordersService.createOrder(cart.value);
 
-  //   if (response) {
-  //     cart.value = { ...initialCart };
+    // if (response) {
+      cart.value = { ...initialCart };
 
-  //     await fetchOrders();
-  //     await fetchAddresses();
+      // await fetchOrders();
+      // await fetchAddresses();
 
-  //     router.push({ name: "Orders" });
-  //   }
-  // };
+      router.push({ name: "Orders" });
+    // }
+  };
 
   return {
     cart,
     getSinglePizzaPrice,
     getOrderPrice,
 
-    // addPizzaToCart,
-    // sendOrder,
+    addPizzaToCart,
+    sendOrder,
   };
 });
