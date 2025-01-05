@@ -35,7 +35,6 @@ import DoughConstructor from "@/modules/Constructor/DoughConstructor.vue";
 import DiameterConstructor from "@/modules/Constructor/DiameterConstructor.vue";
 import IngredientConstructor from "@/modules/Constructor/IngredientConstructor.vue";
 import PizzaConstructor from "@/modules/Constructor/PizzaConstructor.vue";
-import AppCounter from "@/common/components/AppCounter.vue"
 import { usePizzaStore } from "@/store/pizzaStore";
 import { storeToRefs } from "pinia";
 

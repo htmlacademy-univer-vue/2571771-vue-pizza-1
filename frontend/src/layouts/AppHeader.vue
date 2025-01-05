@@ -12,19 +12,19 @@
     </div>
     <div class="header__cart">
       <RouterLink :to="{ name: 'Cart' }">
-        <!-- {{ getOrderPrice() }} ₽ --> 100 rub
+        {{ getOrderPrice() }} ₽ 
       </RouterLink>
     </div>
     <div class="header__user">
       <template v-if="isAuthenticated">
         <RouterLink :to="{ name: 'UserData' }">
-          <!-- <img
+          <img
             :src="getPublicImage(getUserAttribute('avatar'))"
             :alt="getUserAttribute('name')"
             width="32"
             height="32"
           />
-          <span>{{ getUserAttribute("name") }}</span> --> USER
+          <span>{{ getUserAttribute("name") }}</span>
         </RouterLink>
         <a class="header__login" @click.prevent="logoutClickHandler">
           <span>Выйти</span>
@@ -38,24 +38,24 @@
 </template>
 
 <script setup>
-// import { storeToRefs } from "pinia";
-// import { useAuthStore } from "../store/authStore";
-// import router from "../router";
-// import { getPublicImage } from "../common/helpers";
-// import { useCartStore } from "../store/cartStore";
-// import { RouterLink } from "vue-router";
+import { storeToRefs } from "pinia";
+import { useAuthStore } from "../store/authStore";
+import router from "../router";
+import { getPublicImage } from "../common/helpers";
+import { useCartStore } from "../store/cartStore";
+import { RouterLink } from "vue-router";
 
-// const authStore = useAuthStore();
-// const { isAuthenticated } = storeToRefs(authStore);
-// const { logout, getUserAttribute } = authStore;
+const authStore = useAuthStore();
+const { isAuthenticated } = storeToRefs(authStore);
+const { logout, getUserAttribute } = authStore;
 
-// const { getOrderPrice } = useCartStore();
+const { getOrderPrice } = useCartStore();
 
-// const logoutClickHandler = async () => {
-//   await logout();
-//   await router.push({ name: "SignIn" });
-// };
-// </script>
+const logoutClickHandler = async () => {
+  await logout();
+  await router.push({ name: "SignIn" });
+};
+</script>
 
 <style lang="scss">
 .header {
