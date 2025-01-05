@@ -12,11 +12,13 @@
         <b>«Vue.js для опытных разработчиков».</b>
       </p>
       <h1>Vue Pizza Project</h1>
-      <DoughList :dough="dough" />
-      <IngredientList :ingredients="ingredients" />
-      <MiscList :misc="misc" />
-      <SauceList :sauces="sauces" />
-      <SizeList :sizes="sizes" />
+      <div class="pizza-constructor">
+        <DoughList :dough="dough" />
+        <SizeList :sizes="sizes" />
+        <SauceList :sauces="sauces" />
+        <IngredientList :ingredients="ingredients" />
+        <MiscList :misc="misc" @miscSelected="setMisc" />
+      </div>
     </div>
   </div>
 </template>
@@ -63,6 +65,21 @@ body {
     margin: 0 auto;
   }
 }
+
+.pizza-constructor {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  padding: 0 20px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </style>
 
 <script>
@@ -72,11 +89,11 @@ import IngredientList from "@/components/IngredientList.vue";
 import MiscList from "@/components/MiscList.vue";
 import SauceList from "@/components/SauceList.vue";
 import SizeList from "@/components/SizeList.vue";
-import dough from "@/mocks/dough.json";
-import ingredients from "@/mocks/ingredients.json";
-import misc from "@/mocks/misc.json";
-import sauces from "@/mocks/sauces.json";
-import sizes from "@/mocks/sizes.json";
+import dough from "@/common/doughSizes.js";
+import ingredients from "@/common/ingredients.js";
+import misc from "@/mocks/misc.json"; // Example: You may use a similar structure to dough or sizes
+import sauces from "@/common/sauces.js";
+import sizes from "@/common/sizes.js";
 
 export default {
   name: 'App',
@@ -90,12 +107,26 @@ export default {
   },
   data() {
     return {
-      dough,
-      ingredients,
+      dough: this.mapToArray(dough),
+      ingredients: this.mapToArray(ingredients),
       misc,
-      sauces,
-      sizes
+      sauces: this.mapToArray(sauces),
+      sizes: this.mapToArray(sizes),
     };
-  }
+  },
+  methods: {
+    setMisc(selectedMisc) {
+      console.log("Selected misc items:", selectedMisc);
+      // Handle selected misc items
+    },
+    mapToArray(dataObject) {
+      return Object.entries(dataObject).map(([id, name], index) => ({
+        id: parseInt(id),
+        name,
+        image: name, // Assuming images are named after `name`
+        price: (index + 1) * 50, // Example pricing logic
+      }));
+    },
+  },
 };
 </script>

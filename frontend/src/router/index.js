@@ -4,9 +4,15 @@ import BasketView from '@/views/BasketView.vue';  // Example for other views
 import RestaurantsView from '@/views/RestaurantsView.vue'; // Example for other views
 import AboutView from "@/views/AboutView.vue"; // Importing AboutView
 import AppHeader from "@/layouts/AppHeader.vue";  // Importing HomeView
+import PizzaConstructorView from "@/modules/constructor/PizzaConstructorView.vue";
 
 
 const routes = [
+  {
+    path: "/constructor",
+    name: "PizzaConstructor",
+    component: PizzaConstructorView,
+  },
   {
     path: '/',
     name: 'AppHeader',
