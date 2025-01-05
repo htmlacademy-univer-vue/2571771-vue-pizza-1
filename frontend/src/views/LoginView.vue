@@ -10,24 +10,24 @@
       <div class="sign-form__input">
         <label class="input">
           <span>E-mail</span>
-          <!-- <AppInput
+          <AppInput
             v-model="email"
             type="email"
             name="email"
             placeholder="example@mail.ru"
-          /> -->
+          />
         </label>
       </div>
 
       <div class="sign-form__input">
         <label class="input">
           <span>Пароль</span>
-          <!-- <AppInput
+          <AppInput
             v-model="password"
             type="password"
             name="pass"
             placeholder="***********"
-          /> -->
+          />
         </label>
       </div>
       <button type="submit" class="button">Авторизоваться</button>
@@ -35,32 +35,32 @@
   </div>
 </template>
 
-<!-- <script setup>
-import CustomTitle from "@/common/components/CustomTitle.vue";
-import AppInput from "../common/components/AppInput.vue";
-import { useAuthStore } from "@/store/authStore";
+<script setup>
+// import CustomTitle from "@/common/components/CustomTitle.vue";
+// import AppInput from "../common/components/AppInput.vue";
+// import { useAuthStore } from "@/store/authStore";
 import { ref } from "vue";
-import { storeToRefs } from "pinia";
-import router from "../router";
+// import { storeToRefs } from "pinia";
+// import router from "../router";
 
-const authStore = useAuthStore();
-const { login } = authStore;
-const { isAuthenticated } = storeToRefs(authStore);
+// const authStore = useAuthStore();
+// const { login } = authStore;
+// const { isAuthenticated } = storeToRefs(authStore);
 
 const email = ref("");
 const password = ref("");
 
-const onSubmit = async () => {
-  try {
-    await login(email.value, password.value);
-    if (isAuthenticated) {
-      router.push({ name: "Main" });
-    }
-  } catch (e) {
-    throw e.message;
-  }
-};
-</script> -->
+// const onSubmit = async () => {
+//   try {
+//     await login(email.value, password.value);
+//     if (isAuthenticated) {
+//       router.push({ name: "Main" });
+//     }
+//   } catch (e) {
+//     throw e.message;
+//   }
+// };
+</script>
 
 <style lang="scss" scoped>
 .sign-form {
