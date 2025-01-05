@@ -55,50 +55,50 @@
   </div> -->
 </template>
 
-<!-- <script setup>
-import { computed } from "vue";
-import { useDataStore } from "../../store/dataStore";
+<script setup>
+// import { computed } from "vue";
+// import { useDataStore } from "../../store/dataStore";
 import CustomTitle from "@/common/components/CustomTitle.vue";
-import AppDrag from "@/common/components/AppDrag.vue";
-import AppCounter from "@/common/components/AppCounter.vue";
+// import AppDrag from "@/common/components/AppDrag.vue";
+// import AppCounter from "@/common/components/AppCounter.vue";
 
-const {
-  saucesOptions: sauces,
-  ingredientsOptions: ingredients,
-  getEntityValue,
-} = useDataStore();
+// const {
+//   saucesOptions: sauces,
+//   ingredientsOptions: ingredients,
+//   getEntityValue,
+// } = useDataStore();
 
-const props = defineProps({
-  sauceValue: {
-    type: Number,
-    required: true,
-  },
-  ingredientsValue: {
-    type: Object,
-    required: true,
-  },
-});
+// const props = defineProps({
+//   sauceValue: {
+//     type: Number,
+//     required: true,
+//   },
+//   ingredientsValue: {
+//     type: Object,
+//     required: true,
+//   },
+// });
 
-const sauceValue = computed({
-  get() {
-    return props.sauceValue;
-  },
-  set(sauceValue) {
-    emit("update:sauceValue", sauceValue);
-  },
-});
+// const sauceValue = computed({
+//   get() {
+//     return props.sauceValue;
+//   },
+//   set(sauceValue) {
+//     emit("update:sauceValue", sauceValue);
+//   },
+// });
 
-const ingredientsValue = computed({
-  get() {
-    return props.ingredientsValue;
-  },
-  set(ingredientsValue) {
-    emit("update:ingredientValue", ingredientsValue);
-  },
-});
+// const ingredientsValue = computed({
+//   get() {
+//     return props.ingredientsValue;
+//   },
+//   set(ingredientsValue) {
+//     emit("update:ingredientValue", ingredientsValue);
+//   },
+// });
 
-const emit = defineEmits(["update:sauceValue", "update:ingredientValue"]);
-</script> -->
+// const emit = defineEmits(["update:sauceValue", "update:ingredientValue"]);
+</script>
 <style lang="scss" scoped>
 .ingredients__sauce {
   display: flex;
