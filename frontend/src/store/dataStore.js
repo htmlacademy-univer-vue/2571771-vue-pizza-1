@@ -72,28 +72,28 @@ export const useDataStore = defineStore("data", () => {
   //     ingredientsOptions.value.find((option) => option.id === Number(id))
   // );
 
-  // const getEntity = computed(() => (id, entity) => {
-  //   const entities = {
-  //     size: sizeOptions,
-  //     sauce: saucesOptions,
-  //     dough: doughOptions,
-  //     ingredient: ingredientsOptions,
-  //     misc: miscOptions,
-  //   };
+  const getEntity = computed(() => (id, entity) => {
+    const entities = {
+      size: sizeOptions,
+      sauce: saucesOptions,
+      dough: doughOptions,
+      ingredient: ingredientsOptions,
+      misc: miscOptions,
+    };
 
-  //   return entities[entity].value.find((option) => option.id === Number(id));
-  // });
+    return entities[entity].value.find((option) => option.id === Number(id));
+  });
 
-  // const getEntityValue = computed(() => (name) => {
-  //   const entities = {
-  //     ...sizeValuesMap,
-  //     ...saucesValuesMap,
-  //     ...ingredientsValuesMap,
-  //     ...doughValuesMap,
-  //   };
+  const getEntityValue = computed(() => (name) => {
+    const entities = {
+      ...sizeValuesMap,
+      ...saucesValuesMap,
+      ...ingredientsValuesMap,
+      ...doughValuesMap,
+    };
 
-  //   return entities[name];
-  // });
+    return entities[name];
+  });
 
   // const fetchDough = async () => {
   //   doughOptions.value = await doughService.getDough();
@@ -132,8 +132,8 @@ export const useDataStore = defineStore("data", () => {
     // getDoughById,
     // getMiscById,
     // getIngredientById,
-    // getEntity,
-    // getEntityValue,
+    getEntity,
+    getEntityValue,
 
     // fetchDough,
     // fetchSizes,

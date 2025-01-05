@@ -39,36 +39,36 @@ export const useCartStore = defineStore("cart", () => {
 
   const cart = ref({ ...initialCart });
 
-  // const getSinglePizzaPrice = computed(() => (pizza) => {
-  //   let ingredientsSum = 0;
+  const getSinglePizzaPrice = computed(() => (pizza) => {
+    let ingredientsSum = 0;
 
-  //   pizza.ingredients.forEach((ingredient) => {
-  //     ingredientsSum +=
-  //       getEntity.value(ingredient.ingredientId, "ingredient").price *
-  //       ingredient.quantity;
-  //   });
+    pizza.ingredients.forEach((ingredient) => {
+      ingredientsSum +=
+        getEntity.value(ingredient.ingredientId, "ingredient").price *
+        ingredient.quantity;
+    });
 
-  //   return (
-  //     (getEntity.value(pizza.sauceId, "sauce").price +
-  //       getEntity.value(pizza.doughId, "dough").price +
-  //       ingredientsSum) *
-  //     getEntity.value(pizza.sizeId, "size").multiplier
-  //   );
-  // });
+    return (
+      (getEntity.value(pizza.sauceId, "sauce").price +
+        getEntity.value(pizza.doughId, "dough").price +
+        ingredientsSum) *
+      getEntity.value(pizza.sizeId, "size").multiplier
+    );
+  });
 
-  // const getOrderPrice = computed(() => (order = cart.value) => {
-  //   return (
-  //     order.pizzas.reduce(
-  //       (acc, pizza) => acc + getSinglePizzaPrice.value(pizza) * pizza.quantity,
-  //       0
-  //     ) +
-  //     order.misc.reduce(
-  //       (acc, misc) =>
-  //         acc + getEntity.value(misc.miscId, "misc").price * misc.quantity,
-  //       0
-  //     )
-  //   );
-  // });
+  const getOrderPrice = computed(() => (order = cart.value) => {
+    return (
+      order.pizzas.reduce(
+        (acc, pizza) => acc + getSinglePizzaPrice.value(pizza) * pizza.quantity,
+        0
+      ) +
+      order.misc.reduce(
+        (acc, misc) =>
+          acc + getEntity.value(misc.miscId, "misc").price * misc.quantity,
+        0
+      )
+    );
+  });
 
   // const addPizzaToCart = (name) => {
   //   const { pizzaIngredients, pizzaDough, pizzaSauce, pizzaSize } = storeToRefs(
@@ -113,8 +113,8 @@ export const useCartStore = defineStore("cart", () => {
 
   return {
     cart,
-    // getSinglePizzaPrice,
-    // getOrderPrice,
+    getSinglePizzaPrice,
+    getOrderPrice,
 
     // addPizzaToCart,
     // sendOrder,
