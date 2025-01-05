@@ -10,9 +10,9 @@ export const useAuthStore = defineStore("auth", () => {
     return !!user.value;
   });
 
-  // const getUserAttribute = computed(() => (attr) => {
-  //   return user.value ? user.value[attr] : "";
-  // });
+  const getUserAttribute = computed(() => (attr) => {
+    return user.value ? user.value[attr] : "";
+  });
 
   // const login = async (email, password) => {
   //   try {
@@ -38,7 +38,7 @@ export const useAuthStore = defineStore("auth", () => {
   return {
     user,
     isAuthenticated,
-    // getUserAttribute,
+    getUserAttribute,
 
     // login,
     // getMe,

@@ -15,26 +15,26 @@ export const useProfileStore = defineStore("profile", () => {
 
   const userOrders = ref([]);
 
-  // const getOrderPrice = computed(() => (order) => {
-  //   let result = 0;
+  const getOrderPrice = computed(() => (order) => {
+    let result = 0;
 
-  //   if (order.orderPizzas && order.orderPizzas.length > 0) {
-  //     result += order.orderPizzas.reduce(
-  //       (acc, pizza) => acc + getSinglePizzaPrice.value(pizza) * pizza.quantity,
-  //       0
-  //     );
-  //   }
+    if (order.orderPizzas && order.orderPizzas.length > 0) {
+      result += order.orderPizzas.reduce(
+        (acc, pizza) => acc + getSinglePizzaPrice.value(pizza) * pizza.quantity,
+        0
+      );
+    }
 
-  //   if (order.orderMisc && order.orderMisc.length > 0) {
-  //     result += order.orderMisc.reduce(
-  //       (acc, misc) =>
-  //         acc + getEntity.value(misc.miscId, "misc").price * misc.quantity,
-  //       0
-  //     );
-  //   }
+    if (order.orderMisc && order.orderMisc.length > 0) {
+      result += order.orderMisc.reduce(
+        (acc, misc) =>
+          acc + getEntity.value(misc.miscId, "misc").price * misc.quantity,
+        0
+      );
+    }
 
-  //   return result;
-  // });
+    return result;
+  });
 
   // const fetchOrders = async () => {
   //   userOrders.value = await ordersService.getOrders();
@@ -83,7 +83,7 @@ export const useProfileStore = defineStore("profile", () => {
   return {
     userAddresses,
     userOrders,
-    // getOrderPrice,
+    getOrderPrice,
 
     // fetchAddresses,
     // fetchOrders,
