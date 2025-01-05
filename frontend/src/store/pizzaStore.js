@@ -1,10 +1,10 @@
-import { defineStore } from "pinia";
+import { defineStore, storeToRefs } from "pinia";
 import { ref } from "vue";
 import { useDataStore } from "./dataStore";
 import { computed } from "vue";
 
 export const usePizzaStore = defineStore("pizza", () => {
-  const { getEntity } = useDataStore();
+  const { getEntity } = storeToRefs(useDataStore());
 
   const pizzaIngredients = ref({});
   const pizzaDough = ref(1);
@@ -15,13 +15,13 @@ export const usePizzaStore = defineStore("pizza", () => {
     let ingredientsSum = 0;
 
     for (let [id, count] of Object.entries(pizzaIngredients.value)) {
-      ingredientsSum += getEntity(id, 'ingredient').price * count;
+      ingredientsSum += getEntity.value(id, "ingredient").price * count;
     }
     return (
-      (getEntity(pizzaDough.value, "dough").price +
-        getEntity(pizzaSauce.value, "sauce").price +
+      ((getEntity.value(pizzaDough.value, "dough").price ?? 0) +
+        (getEntity.value(pizzaSauce.value, "sauce").price ?? 0) +
         ingredientsSum) *
-      getEntity(pizzaSize.value, "sauce").multiplier
+      (getEntity.value(pizzaSize.value, "size").multiplier ?? 1)
     );
   });
 

@@ -1,41 +1,32 @@
 <template>
-    <div
-      class="draggable"
-      draggable="true"
-      @dragstart="handleDragStart"
-      @dragend="handleDragEnd"
-    >
-      <slot></slot>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: "AppDrag",
-    props: {
-      item: {
-        type: Object,
-        required: true,
-      },
-    },
-    methods: {
-      handleDragStart(event) {
-        event.dataTransfer.setData("application/json", JSON.stringify(this.item));
-        this.$emit("drag-start", this.item);
-      },
-      handleDragEnd() {
-        this.$emit("drag-end");
-      },
-    },
-  };
-  </script>
-  
-  <style scoped>
-  .draggable {
-    cursor: grab;
-  }
-  .draggable:active {
-    cursor: grabbing;
-  }
-  </style>
-  
+  <div
+    :draggable="true"
+    @dragstart.self="onDrag"
+    @dragover.prevent
+    @dragenter.prevent
+  >
+    <slot />
+  </div>
+</template>
+
+<script setup>
+import { DATA_TRANSFER_PAYLOAD, MOVE } from "../constants";
+
+const props = defineProps({
+  transferData: {
+    type: Object,
+    required: true,
+  },
+});
+
+function onDrag({ dataTransfer }) {
+  dataTransfer.effectAllowed = MOVE;
+  dataTransfer.dropEffect = MOVE;
+  dataTransfer.setData(
+    DATA_TRANSFER_PAYLOAD,
+    JSON.stringify(props.transferData)
+  );
+}
+</script>
+
+<style lang="scss" scoped></style>

@@ -1,37 +1,26 @@
 <template>
-    <div
-      class="drop-zone"
-      @dragover.prevent="handleDragOver"
-      @drop="handleDrop"
-    >
-      <slot></slot>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    name: "AppDrop",
-    methods: {
-      handleDragOver(event) {
-        event.preventDefault();
-      },
-      handleDrop(event) {
-        const data = event.dataTransfer.getData("application/json");
-        const item = JSON.parse(data);
-        this.$emit("drop", item);
-      },
-    },
-  };
-  </script>
-  
-  <style scoped>
-  .drop-zone {
-    border: 2px dashed #ccc;
-    padding: 20px;
-    text-align: center;
+  <div @drop.stop="onDrop" @dragover.prevent @dragenter.prevent>
+    <slot />
+  </div>
+</template>
+
+<script setup>
+import { DATA_TRANSFER_PAYLOAD } from "../constants";
+
+const emit = defineEmits(["drop"]);
+
+function onDrop({ dataTransfer }) {
+  if (!dataTransfer) {
+    return;
   }
-  .drop-zone:hover {
-    border-color: #aaa;
+  const payload = dataTransfer.getData(DATA_TRANSFER_PAYLOAD);
+  if (payload) {
+    const transferData = JSON.parse(
+      dataTransfer.getData(DATA_TRANSFER_PAYLOAD)
+    );
+    emit("drop", transferData);
   }
-  </style>
-  
+}
+</script>
+
+<style lang="scss" scoped></style>
