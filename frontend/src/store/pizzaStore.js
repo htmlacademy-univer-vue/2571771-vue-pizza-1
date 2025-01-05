@@ -4,8 +4,8 @@ import { useDataStore } from "./dataStore";
 import { computed } from "vue";
 
 export const usePizzaStore = defineStore("pizza", () => {
-  const { getIngredientById, getDoughById, getSizeById, getSauceById } =
-    useDataStore();
+  // const { getIngredientById, getDoughById, getSizeById, getSauceById } =
+  //   useDataStore();
 
   const pizzaIngredients = ref({});
   const pizzaDough = ref(1);
