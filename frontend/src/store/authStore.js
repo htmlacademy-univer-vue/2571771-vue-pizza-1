@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
-import { setToken, removeToken } from "@/services/tokenManager";
+// import { setToken, removeToken } from "@/services/tokenManager";
 import { ref, computed } from "vue";
-import { authService } from "../services";
+// import { authService } from "../services";
 
 export const useAuthStore = defineStore("auth", () => {
   const user = ref(null);
@@ -14,34 +14,34 @@ export const useAuthStore = defineStore("auth", () => {
     return user.value ? user.value[attr] : "";
   });
 
-  // const login = async (email, password) => {
-  //   try {
-  //     const data = await authService.login(email, password);
+  const login = async (email, password) => {
+    try {
+      // const data = await authService.login(email, password);
 
-  //     setToken(data.token);
-  //     await getMe();
-  //   } catch (e) {
-  //     return e.message;
-  //   }
-  // };
+      // setToken(data.token);
+      await getMe();
+    } catch (e) {
+      return e.message;
+    }
+  };
 
-  // const getMe = async () => {
-  //   user.value = await authService.whoAmI();
-  // };
+  const getMe = async () => {
+    // user.value = await authService.whoAmI();
+  };
 
-  // const logout = async () => {
-  //   await authService.logout();
-  //   user.value = null;
-  //   removeToken();
-  // };
+  const logout = async () => {
+    // await authService.logout();
+    user.value = null;
+    // removeToken();
+  };
 
   return {
     user,
     isAuthenticated,
     getUserAttribute,
 
-    // login,
-    // getMe,
-    // logout,
+    login,
+    getMe,
+    logout,
   };
 });
