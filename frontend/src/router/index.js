@@ -1,48 +1,77 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "@/views/HomeView.vue";  // Importing HomeView
-import BasketView from '@/views/BasketView.vue';  // Example for other views
-import RestaurantsView from '@/views/RestaurantsView.vue'; // Example for other views
-import AboutView from "@/views/AboutView.vue"; // Importing AboutView
-import AppHeader from "@/layouts/AppHeader.vue";  // Importing HomeView
-import PizzaConstructorView from "@/modules/constructor/PizzaConstructorView.vue";
+// import { middlewarePipeline, isAuthenticated } from "@/middlewares";
 
-
-const routes = [
-  {
-    path: "/constructor",
-    name: "PizzaConstructor",
-    component: PizzaConstructorView,
-  },
-  {
-    path: '/',
-    name: 'AppHeader',
-    component: AppHeader
-  },
-  {
-    path: '/',
-    name: 'Home',
-    component: HomeView
-  },
-  {
-    path: '/basket',
-    name: 'Basket',
-    component: BasketView
-  },
-  {
-    path: '/restaurants',
-    name: 'Restaurants',
-    component: RestaurantsView
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import('@/views/AboutView.vue')
-  }
-];
+import MainView from "../views/MainView.vue";
+import IndexView from "@/views/IndexView.vue";
+import WelcomeView from "@/views/WelcomeView.vue";
+import CartView from "@/views/CartView.vue";
+import OrdersView from "@/views/OrdersView.vue";
+import LoginView from "@/views/LoginView.vue";
+import UserDataView from "@/views/UserDataView.vue";
+import PopupView from "@/views/PopupView.vue";
+// import HeaderLayout from "../layouts/HeaderLayout.vue";
+// import SidebarLayout from "../layouts/SidebarLayout.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [],
+  routes: [
+    {
+      path: "/",
+      name: "Index",
+      component: IndexView,
+    },
+    {
+      path: "/welcome",
+      name: "Welcome",
+      component: WelcomeView,
+    },
+    {
+      path: "/main",
+      name: "Main",
+      component: MainView,
+      // meta: {
+      //   layout: HeaderLayout,
+      // },
+    },
+    {
+      path: "/cart",
+      name: "Cart",
+      component: CartView,
+      // meta: {
+      //   layout: HeaderLayout,
+      // },
+    },
+    {
+      path: "/orders",
+      name: "Orders",
+      component: OrdersView,
+      // meta: {
+      //   middlewares: [isAuthenticated],
+      //   layout: SidebarLayout,
+      // },
+    },
+    {
+      path: "/sign-in",
+      name: "SignIn",
+      component: LoginView,
+    },
+    {
+      path: "/user-data",
+      name: "UserData",
+      component: UserDataView,
+      // meta: {
+      //   middlewares: [isAuthenticated],
+      //   layout: SidebarLayout,
+      // },
+    },
+    {
+      path: "/popup",
+      name: "Popup",
+      component: PopupView,
+    },
+  ],
 });
+
+// middlewarePipeline(router);
 
 export default router;
