@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-// import { middlewarePipeline, isAuthenticated } from "@/middlewares";
+import { middlewarePipeline, isAuthenticated } from "@/middlewares";
 
 import MainView from "../views/MainView.vue";
 import IndexView from "@/views/IndexView.vue";
@@ -46,7 +46,7 @@ const router = createRouter({
       name: "Orders",
       component: OrdersView,
       meta: {
-        // middlewares: [isAuthenticated],
+        middlewares: [isAuthenticated],
         layout: SidebarLayout,
       },
     },
@@ -60,7 +60,7 @@ const router = createRouter({
       name: "UserData",
       component: UserDataView,
       meta: {
-        // middlewares: [isAuthenticated],
+        middlewares: [isAuthenticated],
         layout: SidebarLayout,
       },
     },
@@ -72,6 +72,6 @@ const router = createRouter({
   ],
 });
 
-// middlewarePipeline(router);
+middlewarePipeline(router);
 
 export default router;

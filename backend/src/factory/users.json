@@ -1,9 +1,9 @@
 [
   {
-    "name": "Iman Ahmad",
-    "email": "iman.ahmad@gmail.com",
-    "password": "iman.ahmadncd@gmail.com",
+    "name": "Вася Пупкин",
+    "email": "user@example.com",
+    "password": "user@example.com",
     "avatar": "/public/img/users/user.jpg",
-    "phone": "+7 (999) 534-17-79"
+    "phone": "+777 777 777"
   }
 ]
