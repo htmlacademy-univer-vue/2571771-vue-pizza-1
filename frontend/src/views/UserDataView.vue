@@ -202,13 +202,13 @@
   </div>
 </template>
 
-<!-- <script setup>
+<script setup>
 import { storeToRefs } from "pinia";
 import { useProfileStore } from "../store/profileStore";
 import { useAuthStore } from "../store";
 import { getPublicImage } from "@/common/helpers";
 import { ref } from "vue";
-import { addressesService } from "../services";
+// import { addressesService } from "../services";
 
 const { user: currentUser } = storeToRefs(useAuthStore());
 
@@ -236,21 +236,21 @@ const handleEdit = (address) => {
 };
 
 const sendAddress = async () => {
-  await addressesService.createAddress(addressForm.value);
+  // await addressesService.createAddress(addressForm.value);
   await fetchAddresses();
 };
 
 const editAddress = async () => {
-  await addressesService.updateAddress(editingAddress.value);
+  // await addressesService.updateAddress(editingAddress.value);
   await fetchAddresses();
   editingAddress.value.id = null;
 };
 
 const deleteAddress = async () => {
-  await addressesService.deleteAddress(editingAddress.value.id);
+  // await addressesService.deleteAddress(editingAddress.value.id);
   await fetchAddresses();
 };
-</script> -->
+</script>
 
 <style lang="scss" scoped>
 .user {

@@ -3,7 +3,7 @@
     <h2 class="title title--small sheet__title">Выберите размер</h2>
   </CustomTitle>
 
-  <!-- <div class="sheet__content diameter">
+  <div class="sheet__content diameter">
     <label
       v-for="size in sizes"
       :key="size.id"
@@ -19,10 +19,10 @@
       />
       <span>{{ size.name }}</span>
     </label>
-  </div> -->
+  </div>
 </template>
 
-<!-- <script setup>
+<script setup>
 import CustomTitle from "@/common/components/CustomTitle.vue";
 import { computed } from "vue";
 import { useDataStore } from "../../store/dataStore";
@@ -47,7 +47,7 @@ const value = computed({
     emit("update:modelValue", value);
   },
 });
-</script> -->
+</script>
 
 <style lang="scss" scoped>
 .diameter__input {

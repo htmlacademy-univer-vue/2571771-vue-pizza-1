@@ -6,8 +6,8 @@
           <h1 class="title title--big">Корзина</h1>
         </div>
 
-        <!-- <ul v-if="cart.pizzas.length > 0" class="cart-list sheet"> -->
-          <!-- <li
+        <ul v-if="cart.pizzas.length > 0" class="cart-list sheet">
+          <li
             v-for="pizza in cart.pizzas"
             :key="pizza.id"
             class="cart-list__item"
@@ -59,8 +59,8 @@
             <div class="cart-list__button">
               <button type="button" class="cart-list__edit">Изменить</button>
             </div>
-          </li> -->
-        <!-- </ul> -->
+          </li>
+        </ul>
 
         <div class="sheet cart__empty">
           <p>В корзине нет ни одной пиццы</p>
@@ -68,7 +68,7 @@
 
         <div class="cart__additional">
           <ul class="additional-list">
-            <!-- <li
+            <li
               v-for="misc in cart.misc"
               :key="misc.id"
               class="additional-list__item sheet"
@@ -91,7 +91,7 @@
                   <b>× {{ getEntity(misc.miscId, "misc").price }} ₽</b>
                 </div>
               </div>
-            </li> -->
+            </li>
           </ul>
         </div>
 
@@ -109,12 +109,12 @@
 
             <label class="input input--big-label">
               <span>Контактный телефон:</span>
-              <!-- <input
+              <input
                 v-model="cart.phone"
                 type="text"
                 name="tel"
                 placeholder="+7 999-999-99-99"
-              /> -->
+              />
             </label>
 
             <div class="cart-form__address">
@@ -123,33 +123,33 @@
               <div class="cart-form__input">
                 <label class="input">
                   <span>Улица*</span>
-                  <!-- <input
+                  <input
                     v-model="cart.address.street"
                     type="text"
                     name="street"
-                  /> -->
+                  />
                 </label>
               </div>
 
               <div class="cart-form__input cart-form__input--small">
                 <label class="input">
                   <span>Дом*</span>
-                  <!-- <input
+                  <input
                     v-model="cart.address.building"
                     type="text"
                     name="house"
-                  /> -->
+                  />
                 </label>
               </div>
 
               <div class="cart-form__input cart-form__input--small">
                 <label class="input">
                   <span>Квартира</span>
-                  <!-- <input
+                  <input
                     v-model="cart.address.flat"
                     type="text"
                     name="apartment"
-                  /> -->
+                  />
                 </label>
               </div>
             </div>
@@ -169,17 +169,17 @@
         Перейти к конструктору<br />чтоб собрать ещё одну пиццу
       </p>
       <div class="footer__price">
-        <!-- <b>Итого: {{ getOrderPrice() }} ₽</b> --> ITOGO
+        <b>Итого: {{ getOrderPrice() }} ₽</b>
       </div>
 
       <div class="footer__submit">
-        <!-- <button class="button" @click="sendOrder()">Оформить заказ</button> -->SSS
+        <button class="button" @click="sendOrder()">Оформить заказ</button>
       </div>
     </section>
   </div>
 </template>
 
-<!-- <script setup>
+<script setup>
 import { storeToRefs } from "pinia";
 import { useCartStore } from "../store/cartStore";
 import AppCounter from "../common/components/AppCounter.vue";
@@ -191,7 +191,7 @@ const { cart, getSinglePizzaPrice, getOrderPrice } = storeToRefs(cartStore);
 const { sendOrder } = cartStore;
 
 const { getEntity } = storeToRefs(useDataStore());
-</script> -->
+</script>
 
 <style lang="scss" scoped>
 .layout-form {

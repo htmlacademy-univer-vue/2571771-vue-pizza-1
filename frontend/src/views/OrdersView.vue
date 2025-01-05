@@ -106,7 +106,7 @@
   </div>
 </template>
 
-<!-- <script setup>
+<script setup>
 import { getPublicImage } from "@/common/helpers";
 import { storeToRefs } from "pinia";
 import { useProfileStore } from "../store/profileStore";
@@ -126,7 +126,7 @@ const {
 } = useDataStore();
 
 const { getSinglePizzaPrice } = storeToRefs(useCartStore());
-</script> -->
+</script>
 
 <style lang="scss" scoped>
 .order {

@@ -1,6 +1,5 @@
 <template>
-  CONSTRUCTOR
-  <!-- <div class="content__pizza">
+  <div class="content__pizza">
     <label class="input">
       <span class="visually-hidden">Название пиццы</span>
       <input
@@ -54,10 +53,10 @@
         Готовьте!
       </button>
     </div>
-  </div> -->
+  </div>
 </template>
 
-<!-- <script setup>
+<script setup>
 import AppDrop from "@/common/components/AppDrop.vue";
 import { useDataStore } from "../../store/dataStore";
 import { storeToRefs } from "pinia";
@@ -86,7 +85,7 @@ const handleSubmit = () => {
 
   router.push({ name: "Cart" });
 };
-</script> -->
+</script>
 
 <style lang="scss" scoped>
 .pizza {
