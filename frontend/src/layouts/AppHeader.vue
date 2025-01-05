@@ -1,59 +1,210 @@
+
 <template>
-    <header class="app-header">
-      <nav>
-        <ul class="nav-links">
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/basket">Basket</router-link></li>
-          <li><router-link to="/restaurants">Restaurants</router-link></li>
-          <li><router-link to="/about">About</router-link></li>
-        </ul>
-      </nav>
-    </header>
+  <header class="header">
+    <div class="header__logo">
+      <RouterLink :to="{ name: 'Index' }" class="logo">
+        <img
+          src="@assets/img/logo.svg"
+          alt="V!U!E! Pizza logo"
+          width="90"
+          height="40"
+        />
+      </RouterLink>
+    </div>
+    <div class="header__cart">
+      <RouterLink :to="{ name: 'Cart' }">
+        <!-- {{ getOrderPrice() }} ₽ --> 100 rub
+      </RouterLink>
+    </div>
+    <div class="header__user">
+      <template v-if="isAuthenticated">
+        <RouterLink :to="{ name: 'UserData' }">
+          <!-- <img
+            :src="getPublicImage(getUserAttribute('avatar'))"
+            :alt="getUserAttribute('name')"
+            width="32"
+            height="32"
+          />
+          <span>{{ getUserAttribute("name") }}</span> --> USER
+        </RouterLink>
+        <a class="header__login" @click.prevent="logoutClickHandler">
+          <span>Выйти</span>
+        </a>
+      </template>
+      <RouterLink v-else :to="{ name: 'SignIn' }" class="header__login">
+        <span>Войти</span>
+        </RouterLink>
+    </div>
+  </header>
 </template>
-<<<<<<< HEAD
-=======
-  
-  <script>
-  export default {
-    name: 'AppHeader'
+
+<script setup>
+// import { storeToRefs } from "pinia";
+// import { useAuthStore } from "../store/authStore";
+// import router from "../router";
+// import { getPublicImage } from "../common/helpers";
+// import { useCartStore } from "../store/cartStore";
+// import { RouterLink } from "vue-router";
+
+// const authStore = useAuthStore();
+// const { isAuthenticated } = storeToRefs(authStore);
+// const { logout, getUserAttribute } = authStore;
+
+// const { getOrderPrice } = useCartStore();
+
+// const logoutClickHandler = async () => {
+//   await logout();
+//   await router.push({ name: "SignIn" });
+// };
+// </script>
+
+<style lang="scss">
+.header {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  padding: 0 2.12%;
+
+  background-color: $green-500;
+  box-shadow: $shadow-light;
+}
+
+.header__logo {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header__cart {
+  margin-right: 10px;
+  margin-left: auto;
+
+  a {
+    @include b-s16-h19;
+
+    display: block;
+
+    padding-top: 21px;
+    padding-right: 15px;
+    padding-bottom: 21px;
+    padding-left: 58px;
+
+    transition: 0.3s;
+
+    color: $white;
+    background-color: $green-500;
+    background-image: url("@assets/img/cart.svg");
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 29px 27px;
+
+    &:hover:not(:active) {
+      background-color: $green-400;
+    }
+
+    &:active {
+      background-color: $green-600;
+    }
+
+    &:focus {
+      opacity: 0.5;
+    }
   }
-  </script>
-  
-  <style scoped>
-  .app-header {
-    color: white;
-    background-color: #10470f;
-    padding: 10px;
-    text-align: center;
+}
+
+.header__user {
+  display: flex;
+  align-items: center;
+
+  a {
+    display: block;
+
+    padding-top: 14px;
+    padding-right: 20px;
+    padding-bottom: 14px;
+    padding-left: 20px;
+
+    transition: 0.3s;
+
+    background-color: $green-500;
+
+    &:hover:not(:active) {
+      background-color: $green-400;
+    }
+
+    &:active {
+      background-color: $green-600;
+    }
+
+    &:focus {
+      opacity: 0.5;
+    }
   }
-  
-  .app-header li {
-    font-size: 2em;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 10px;
+
+  img {
+    display: inline-block;
+
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+
+    vertical-align: middle;
+
+    border-radius: 50%;
   }
-  
-  .nav-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+
+  span {
+    @include r-s14-h16;
+
+    display: inline-block;
+
+    vertical-align: middle;
+
+    color: $white;
   }
-  
-  .nav-links li {
-    margin: 0 15px;
+}
+
+.header__logout {
+  &::before {
+    display: inline-block;
+
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+
+    content: "";
+    vertical-align: middle;
+
+    background: url("@assets/img/login.svg") no-repeat center;
+    background-size: auto 50%;
   }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: #fffefe;
-    font-size: 1.2em;
+}
+
+.header__login {
+  &::after {
+    display: inline-block;
+
+    width: 32px;
+    height: 32px;
+    margin-left: 8px;
+
+    content: "";
+    vertical-align: middle;
+
+    background: url("@assets/img/login.svg") no-repeat center;
+    background-size: auto 50%;
   }
-  
-  .nav-links a:hover {
-    color: #007bff;
+}
+
+.logo {
+  display: block;
+
+  img {
+    display: block;
+
+    width: 90px;
+    height: 40px;
   }
-  </style>
-  
->>>>>>> 62db283 (Добавление переменных в компонент в проекте Vue-Pizza)
+}
+</style>
